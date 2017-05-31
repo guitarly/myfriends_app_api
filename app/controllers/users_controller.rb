@@ -52,9 +52,6 @@ class UsersController < ApplicationController
     # POST /users
   def create
 
-    puts "====================="
-    puts "i m creating an user."
-
     #  puts params
     #  @user = User.new(user_params)
     #  @user.name = params[:name]

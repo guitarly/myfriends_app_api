@@ -1,0 +1,8 @@
+
+
+# RestClient.post "https://api:key-0505965277a21253cb183410e55ccf09"
+#         "@api.mailgun.net/v3/sandboxc497f7f0c84b40fdac65d4d24e61b116.mailgun.org/messages",
+#         :from => "Mailgun Sandbox <postmaster@sandboxc497f7f0c84b40fdac65d4d24e61b116.mailgun.org>",
+#         :to => "Bat Can <batcan75@gmail.com>",
+#         :subject => "Hello Bat Can",
+#         :text => "Congratulations Bat Can, you just sent an email with Mailgun!  You are truly awesome!"

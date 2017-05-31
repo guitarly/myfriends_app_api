@@ -33,7 +33,11 @@ gem 'dotenv-rails'
 gem 'carrierlookup'
 gem 'geocoder'
 gem 'gmaps4rails'
-gem 'sms-easy'
+gem 'sms_fu'
+gem  'actionmailer'
+gem 'pony'
+gem 'brendanlim-sms-fu'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

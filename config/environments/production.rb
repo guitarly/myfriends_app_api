@@ -49,6 +49,19 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "myfriends_app_api_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
+# Matthew added these lines here........
+  # config.action_mailer.delivery_method = :smtp
+  # # SMTP settings for mailgun
+  # ActionMailer::Base.smtp_settings = {
+  #   :port           => 587,
+  #   :address        => "smtp.mailgun.org",
+  #   :domain         => ENV['domain'],
+  #   :user_name      => ENV['username'],
+  #   :password       => ENV['password'],
+  #   :authentication => :plain,
+  # }}
+#  --------------------------
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
@@ -75,4 +88,17 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # # ----- Matthew adds this in.......
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   :enable_starttls_auto => true,
+  #   :address => 'smtp.gmail.com',
+  #   :port => 587,
+  #   :authentication => :plain,
+  #   :domain => 'meandfriends.heroku.com',
+  #   :user_name => 'mefriends2017@gmail.com',
+  #   :password => 'testmonday1!'
+  # }
+
 end

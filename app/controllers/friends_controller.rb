@@ -6,8 +6,8 @@ class FriendsController < ApplicationController
 
   # GET /friends
   def index
-    @friends = Friend.all
-
+    userId = params[:user_id]
+    @friends = Friend.where(user_id: userId)
     render json: @friends
   end
 
@@ -88,14 +88,6 @@ class FriendsController < ApplicationController
 
     puts @friend[:user_id]
 
-      # render json: {message: "testing"}
-      # if @friend.save
-      #   @friends = Friend.find_by(user_id: userid)
-      #   render json: @friends
-      # else
-      #   render json: @friend.errors, status: :unprocessable_entity
-      # end
-
     if @friend.update(friend_params)
       @friends = Friend.where(user_id: userid)
       render json: @friends
@@ -106,6 +98,7 @@ class FriendsController < ApplicationController
 
   # DELETE /friends/1
   def destroy
+    @friend = Friend.find(params[:id])
     @friend.destroy
   end
 

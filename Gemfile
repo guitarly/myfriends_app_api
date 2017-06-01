@@ -36,7 +36,7 @@ gem 'gmaps4rails'
 gem 'sms_fu'
 gem  'actionmailer'
 gem 'pony'
-gem 'brendanlim-sms-fu'
+# gem 'brendanlim-sms-fu'
 
 
 group :development, :test do

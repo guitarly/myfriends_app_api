@@ -29,19 +29,24 @@ gem 'jwt'
 gem 'rack-cors'
 gem 'dotenv-rails'
 
-# Telephone look carrier
-gem 'carrierlookup'
+
+# google map
 gem 'geocoder'
 gem 'gmaps4rails'
-gem 'sms_fu'
-gem  'actionmailer'
-gem 'pony'
+
+# Telephone look carrier
+# gem 'carrierlookup'
+# gem 'sms_fu'
+# gem  'actionmailer'
+# gem 'pony'
 # gem 'brendanlim-sms-fu'
+
 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  # gem 'figaro'
 end
 
 group :development do

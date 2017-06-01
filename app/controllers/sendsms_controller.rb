@@ -1,6 +1,6 @@
 class SendsmsController < ApplicationController
-  # has_sms_fu
-  include SMSFu
+  # @has_sms_fu
+  # include SMSFu
 
 
   def new
@@ -9,6 +9,11 @@ class SendsmsController < ApplicationController
 
   def create
     puts "in create send text"
+    puts params[:friend]
+    @friend = params[:friend]
+
+    UserEmailMailer.notify_user(@friend).deliver
+
 
 
       render json: {errors: 'testing.'}

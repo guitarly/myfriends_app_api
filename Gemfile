@@ -35,12 +35,12 @@ gem 'geocoder'
 gem 'gmaps4rails'
 
 gem 'sms-easy'
+
 # Telephone look carrier
 # gem 'carrierlookup'
 # gem 'sms_fu'
 # gem  'actionmailer'
 # gem 'pony'
-# gem 'brendanlim-sms-fu'
 
 
 

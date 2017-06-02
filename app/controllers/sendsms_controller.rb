@@ -1,3 +1,4 @@
+
 class SendsmsController < ApplicationController
   # @has_sms_fu
   # include SMSFu
@@ -8,38 +9,37 @@ class SendsmsController < ApplicationController
   end
 
   def create
-    puts "in create send text"
-    puts params[:friend]
-    @friend = params[:friend]
-
-    UserEmailMailer.notify_user(@friend).deliver
+    # puts "in create send text"
+    # puts params[:friend]
+    # @friend = params[:friend]
+    #
+    # UserEmailMailer.notify_user(@friend).deliver
 
   end
 
   def sendEmail
     puts "--- send email "
-    puts params
-    puts params[:friend]
+
     @friend = params[:friend]
-    puts @friend[:emailText]
-    puts "--------"
-    
+
+
     UserEmailMailer.notify_user(@friend).deliver
   end
 
   def sendText
     @friend = params[:friend]
-    puts @friend
+
     # send text in usa only.. phone# has to be 10 digits.
     puts "sending... text"
-
-
+    phone =@friend[:phone].gsub(/[^0-9]/,'')
+    phoneCarrier = @friend[:phone_company]
+    textMessage = @friend[:textMessage]
 
     # # Create the client
-    # easy = SMSEasy::Client.new
+    easy = SMSEasy::Client.new
     # # Deliver a simple message.
-    # easy.deliver("7035770516", "verizon", "Hey!")
-    render json: {errors: 'testing.'}
+    easy.deliver(phone, phoneCarrier, textMessage)
+    render json: {message: 'Sent text successful'}
 
 
   end

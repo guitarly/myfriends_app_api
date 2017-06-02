@@ -64,6 +64,7 @@ class UsersController < ApplicationController
 
     tempUser = User.find_by_username(params[:username])
 
+
     if tempUser
       puts "Username is already taken."
       puts "++++++++++++++++++++++++++++++++"
@@ -76,6 +77,7 @@ class UsersController < ApplicationController
           @user.username = params[:username]
           # @user.password = params[:password]
           @user.password_digest = hashed_password
+          @user.email = params[:email]
 
           puts @user.name
 

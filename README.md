@@ -1,24 +1,20 @@
 # README
+Setup for the application backend. (Me and Friend appliction )
+- Ruby 2.3.3p222
+- postgresql
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Gem:
+- gem 'rack-cors' (middleware - communicate with Express)
+- gem 'bcrypt', '~> 3.1.7' - Use ActiveModel has_secure_password
+- gem 'jwt'     -  Jwt - json web token
+- gem 'geocoder' - to geocode lat/long of the address
+- gem 'sms-easy'  - send text meassage.
 
-Things you may want to cover:
+Need to setup ActionMailer to be able to send email/text. (more information - https://launchschool.com/blog/handling-emails-in-rails)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Create two models:
+  - User
+  - Friend.
+  (one to many)
+  
+  

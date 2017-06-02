@@ -20,9 +20,11 @@ class SendsmsController < ApplicationController
     puts "--- send email "
     puts params
     puts params[:friend]
-    # @friend = params[:friend]
-    #
-    # UserEmailMailer.notify_user(@friend).deliver
+    @friend = params[:friend]
+    puts @friend[:emailText]
+    puts "--------"
+    
+    UserEmailMailer.notify_user(@friend).deliver
   end
 
   def sendText

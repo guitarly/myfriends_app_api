@@ -14,23 +14,30 @@ class SendsmsController < ApplicationController
 
     UserEmailMailer.notify_user(@friend).deliver
 
-
-      render json: {errors: 'testing.'}
-
-
   end
 
-  def send_email
+  def sendEmail
     puts "--- send email "
+    puts params
+    puts params[:friend]
+    # @friend = params[:friend]
+    #
+    # UserEmailMailer.notify_user(@friend).deliver
   end
 
-  def send_text
+  def sendText
+    @friend = params[:friend]
+    puts @friend
     # send text in usa only.. phone# has to be 10 digits.
+    puts "sending... text"
 
-    # Create the client
-    easy = SMSEasy::Client.new
-    # Deliver a simple message.
-    easy.deliver("7035770516", "verizon", "Hey!")
+
+
+    # # Create the client
+    # easy = SMSEasy::Client.new
+    # # Deliver a simple message.
+    # easy.deliver("7035770516", "verizon", "Hey!")
+    render json: {errors: 'testing.'}
 
 
   end

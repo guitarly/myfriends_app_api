@@ -79,10 +79,6 @@ class UsersController < ApplicationController
           @user.password_digest = hashed_password
           @user.email = params[:email]
 
-          puts @user.name
-
-
-
           if @user.save
             render json: @user, status: :created, location: @user
           else
@@ -115,6 +111,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:username, :name, :password_digest)
+      params.require(:user).permit(:username, :name, :password_digest, :email)
     end
 end

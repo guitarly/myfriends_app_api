@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   get '/sendText', to: 'sendsms#new'
-  post '/sendText', to: 'sendsms#create'
+  post '/sendText', to: 'sendsms#sendText'
+  post '/sendEmail', to: 'sendsms#sendEmail'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

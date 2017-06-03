@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
-  before_action :authenticate_token, except:[:login, :create]
-  before_action :authorize_user, except:[:login, :create, :index]
+  before_action :authenticate_token, except:[:login, :create, :update, :destroy]
+  before_action :authorize_user, except:[:login, :create, :index, :update, :destroy]
 
   def login
     puts "Login"
@@ -90,17 +90,33 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-
-    if @user.update(user_params)
-      render json: @user
-    else
-      render json: @user.errors, status: :unprocessable_entity
+    puts "Updating user information...."
+    userId = params[:id]
+    user = params[:user]
+    @user = User.find(params[:id])
+    if user[:password] != nil
+      hashed_password = BCrypt::Password.create(params[:password])
+      @user.password_digest = hashed_password
     end
+    if user[:name] != nil
+      @user.name = user[:name]
+    end
+    if user[:email] != nil
+      @user.email = user[:email]
+    end
+
+    @user.save
+    render json: {status: 200, user: @user}
+
   end
 
   # DELETE /users/1
   def destroy
-    @user.destroy
+    userId = params[:id]
+    puts userId
+    # Friend.where(user_id: userId).destroy
+    User.find(params[:id]).destroy
+    render json: {message: "Deleted User Successful"}
   end
 
   private

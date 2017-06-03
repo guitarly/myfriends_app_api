@@ -5,8 +5,16 @@ class UsersController < ApplicationController
 
   def login
     puts "Login"
-
     user = User.find_by(username: params[:user][:username])
+
+# Testing.. to reset password
+    # userid = user.id
+    # puts userid
+    # if userid == 1
+    #   puts "userid is 1"
+    #   resetpassword(userid)
+    # end
+
     if user && user.authenticate(params[:user][:password])
       token = create_token(user.id, user.username)
 
@@ -117,6 +125,16 @@ class UsersController < ApplicationController
     # Friend.where(user_id: userId).destroy
     User.find(params[:id]).destroy
     render json: {message: "Deleted User Successful"}
+  end
+
+  def resetpassword(id)
+    # puts "resetpassword", id
+    # @user = User.find(id)
+    #  hashed_password = BCrypt::Password.create('test')
+    #  puts hashed_password
+    # @user.password_digest = hashed_password
+    # @user.save
+    #
   end
 
   private

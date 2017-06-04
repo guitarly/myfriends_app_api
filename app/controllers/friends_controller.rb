@@ -16,6 +16,7 @@ class FriendsController < ApplicationController
     render json: @friend
   end
 
+
   # POST /friends
   def create
     @friend = Friend.new(friend_params)

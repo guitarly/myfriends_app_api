@@ -41,8 +41,6 @@ class UsersController < ApplicationController
     }
   end
 
-
-
   # GET /users
   def index
     @users = User.all
